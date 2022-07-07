@@ -1,29 +1,23 @@
 package com.unifica.documentos.resource;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.unifica.documentos.entity.User;
+import com.unifica.documentos.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.unifica.documentos.entity.User;
-
 @RestController
-@RequestMapping(value = "/documentos")
+@RequestMapping(value = "/usuarios")
 public class UserResource {
 
-	@GetMapping
-	public List<User> listar() {
-		
-		User u1 = new User(1, "Douglas", "foto/123", "email@email.com", "123");
-		User u2 = new User(2, "flavia", "foto/abc", "teste@teste.com", "abc");
-		
-		List<User> lista = new ArrayList<>();
-		
-		lista.add(u1);
-		lista.add(u2);
-		
-		return lista;
+	@Autowired
+	private UserService userService;
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<?> find(@PathVariable Integer id) {
+		User obj = userService.find(id);
+		return ResponseEntity.ok().body(obj);
 	}
 }
