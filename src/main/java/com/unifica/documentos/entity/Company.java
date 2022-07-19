@@ -1,44 +1,45 @@
 package com.unifica.documentos.entity;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "Users")
-public class User implements Serializable {
-	private static final long serialVersionUID = 1L;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "Companies")
+public class Company implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	private String photo;
+	private String cnpj;
+	private String logo;
 	private String email;
-	private String password;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "user")
-	private List<Document> documents = new ArrayList<>();
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "company")
 	private List<Request> requests = new ArrayList<>();
-
-	public User() {
+	
+	public Company() {
 	}
 
-	public User(Integer id, String name, String photo, String email, String password) {
+	public Company(Integer id, String name, String cnpj, String logo, String email) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.photo = photo;
+		this.cnpj = cnpj;
+		this.logo = logo;
 		this.email = email;
-		this.password = password;
 	}
 
 	public Integer getId() {
@@ -57,12 +58,20 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 
 	public String getEmail() {
@@ -73,22 +82,10 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public List<Document> getDocuments() {
-		return documents;
-	}
-
-	public void setDocuments(List<Document> documents) {
-		this.documents = documents;
-	}
-
+	
 	public List<Request> getRequests() {
 		return requests;
 	}
@@ -96,7 +93,7 @@ public class User implements Serializable {
 	public void setRequests(List<Request> requests) {
 		this.requests = requests;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -113,7 +110,7 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Company other = (Company) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
