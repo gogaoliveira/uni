@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unifica.documentos.entity.enums.StateRequest;
 
 @Entity
@@ -24,6 +25,7 @@ public class Request implements Serializable {
 	private Date date;
 	private Integer state;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;

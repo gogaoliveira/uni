@@ -1,12 +1,15 @@
 package com.unifica.documentos.entity;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "Users")
@@ -21,11 +24,11 @@ public class User implements Serializable {
 	private String email;
 	private String password;
 	
-	@JsonIgnore
+	
 	@OneToMany(mappedBy = "user")
 	private List<Document> documents = new ArrayList<>();
 	
-	@JsonIgnore
+	
 	@OneToMany(mappedBy = "user")
 	private List<Request> requests = new ArrayList<>();
 
@@ -96,7 +99,7 @@ public class User implements Serializable {
 	public void setRequests(List<Request> requests) {
 		this.requests = requests;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

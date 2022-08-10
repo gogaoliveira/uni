@@ -12,7 +12,10 @@ import com.unifica.documentos.entity.Company;
 import com.unifica.documentos.entity.Document;
 import com.unifica.documentos.entity.Request;
 import com.unifica.documentos.entity.User;
+import com.unifica.documentos.entity.documents.Cpf;
+import com.unifica.documentos.entity.documents.TituloEleitor;
 import com.unifica.documentos.entity.enums.StateRequest;
+import com.unifica.documentos.entity.enums.TypeDocument;
 import com.unifica.documentos.repositories.CompanyRepositories;
 import com.unifica.documentos.repositories.DocumentRepositories;
 import com.unifica.documentos.repositories.RequestRepositories;
@@ -39,7 +42,8 @@ public class UniApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
+		
 		User u1 = new User(null, "Douglas", "photo/douglas", "douglas@email.com", "123");
 		User u2 = new User(null, "Flavia", "photo/flavia", "flavia@email.com", "321");
 		User u3 = new User(null, "Eric", "photo/eric", "eric@email.com", "2020");
@@ -51,13 +55,12 @@ public class UniApplication implements CommandLineRunner {
 
 		companyRepositories.saveAll(Arrays.asList(c1, c2));
 		
-		Document d1 = new Document(null, "CPF", "111.111.111-11", "photo/cpf", u1);
-		Document d2 = new Document(null, "CNH", "222.222.22", "photo/cnh", u2);
+		Document d1 = new Cpf(null, TypeDocument.CPF, "111.111.111-11", "photo/cpf", u1, sdf.parse("01/01/1991"));
+		Document d2 = new Cpf(null, TypeDocument.CPF, "222.222.22", "photo/cnh", u2, sdf.parse("01/01/1992"));
+		Document d3 = new TituloEleitor(null, TypeDocument.TITULO_ELEITOR, "19991199119", "photo/tituloeleitor", u1,  sdf.parse("23/09/1991"),  sdf.parse("23/09/2007"), "001", "049", "Criciuma");
 		
-		documentRepositories.saveAll(Arrays.asList(d1, d2));
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
-		
+		documentRepositories.saveAll(Arrays.asList(d1, d2, d3));
+				
 		Request r1 = new Request(null, sdf.parse("01/01/1999"), StateRequest.AWAIT, u1, c1);
 		Request r2 = new Request(null, sdf.parse("09/09/2020"), StateRequest.AWAIT, u2, c2);
 		

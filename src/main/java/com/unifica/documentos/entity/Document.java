@@ -6,22 +6,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.unifica.documentos.entity.enums.TypeDocument;
 
 @Entity
-@Table(name = "Documents")
-public class Document implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Document implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String typeDocument;
+	private Integer type;
 	private String numberDocument;
 	private String photoDocument;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -29,9 +34,9 @@ public class Document implements Serializable {
 	public Document() {
 	}
 
-	public Document(Integer id, String typeDocument, String numberDocument, String photoDocument, User user) {
+	public Document(Integer id, TypeDocument type, String numberDocument, String photoDocument, User user) {
 		this.id = id;
-		this.typeDocument = typeDocument;
+		this.type = type.getCod();
 		this.numberDocument = numberDocument;
 		this.photoDocument = photoDocument;
 		this.user = user;
@@ -45,12 +50,12 @@ public class Document implements Serializable {
 		this.id = id;
 	}
 
-	public String getTypeDocument() {
-		return typeDocument;
+	public TypeDocument getType() {
+		return TypeDocument.toEnum(type);
 	}
 
-	public void setTypeDocument(String typeDocument) {
-		this.typeDocument = typeDocument;
+	public void setType(TypeDocument type) {
+		this.type = type.getCod();
 	}
 
 	public String getNumberDocument() {
