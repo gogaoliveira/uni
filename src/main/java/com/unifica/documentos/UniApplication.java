@@ -1,13 +1,5 @@
 package com.unifica.documentos;
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.unifica.documentos.entity.Company;
 import com.unifica.documentos.entity.Document;
 import com.unifica.documentos.entity.Request;
@@ -20,6 +12,13 @@ import com.unifica.documentos.repositories.CompanyRepositories;
 import com.unifica.documentos.repositories.DocumentRepositories;
 import com.unifica.documentos.repositories.RequestRepositories;
 import com.unifica.documentos.repositories.UserRepositories;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class UniApplication implements CommandLineRunner {

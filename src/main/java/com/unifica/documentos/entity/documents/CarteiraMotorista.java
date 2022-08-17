@@ -11,7 +11,9 @@ import com.unifica.documentos.entity.enums.TypeDocument;
 @Entity
 public class CarteiraMotorista extends Document{
 	private static final long serialVersionUID = 1L;
-	
+
+	private String Teste;
+
 	private Date validade;
 	private Date primeiraHabilitacao;
 	private String categoria;

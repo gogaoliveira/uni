@@ -1,12 +1,11 @@
 package com.unifica.documentos.entity.documents;
 
-import java.util.Date;
-
-import javax.persistence.Entity;
-
 import com.unifica.documentos.entity.Document;
 import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.enums.TypeDocument;
+
+import javax.persistence.Entity;
+import java.util.Date;
 
 @Entity
 public class Cpf extends Document{
