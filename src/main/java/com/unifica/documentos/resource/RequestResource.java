@@ -22,4 +22,6 @@ public class RequestResource {
 		Request obj = requestService.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+	
 }

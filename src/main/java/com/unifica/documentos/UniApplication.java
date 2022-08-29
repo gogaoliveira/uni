@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.unifica.documentos.entity.Company;
 import com.unifica.documentos.entity.Document;
@@ -26,15 +27,14 @@ public class UniApplication implements CommandLineRunner {
 
 	@Autowired
 	private UserRepositories userRepositories;
-	
 	@Autowired
 	private CompanyRepositories companyRepositories;
-	
 	@Autowired
 	private DocumentRepositories documentRepositories;
-	
 	@Autowired
 	private RequestRepositories requestRepositories;
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 
 	public static void main(String[] args) {
 		SpringApplication.run(UniApplication.class, args);
@@ -44,9 +44,9 @@ public class UniApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
 		
-		User u1 = new User(null, "Douglas", "photo/douglas", "douglas@email.com", "123");
-		User u2 = new User(null, "Flavia", "photo/flavia", "flavia@email.com", "321");
-		User u3 = new User(null, "Eric", "photo/eric", "eric@email.com", "2020");
+		User u1 = new User(null, "Douglas", "photo/douglas", "12345678909", "douglas@email.com", encoder.encode("123"));
+		User u2 = new User(null, "Flavia", "photo/flavia", "12345678909", "flavia@email.com", encoder.encode("321"));
+		User u3 = new User(null, "Eric", "photo/eric", "12345678909", "eric@email.com", "2020");
 
 		userRepositories.saveAll(Arrays.asList(u1, u2, u3));
 

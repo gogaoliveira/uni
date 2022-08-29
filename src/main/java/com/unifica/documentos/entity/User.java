@@ -2,14 +2,26 @@ package com.unifica.documentos.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.unifica.documentos.entity.enums.Profile;
+
+
 
 @Entity
 @Table(name = "Users")
@@ -21,27 +33,37 @@ public class User implements Serializable {
 	private Integer id;
 	private String name;
 	private String photo;
-	private String email;
-	private String password;
+	private String cpf;
 	
+	@Column(unique=true)
+	private String email;
+	
+	@JsonIgnore
+	private String password;
 	
 	@OneToMany(mappedBy = "user")
 	private List<Document> documents = new ArrayList<>();
 	
-	
 	@OneToMany(mappedBy = "user")
 	private List<Request> requests = new ArrayList<>();
+	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="PROFILES")
+	private Set<Integer> profiles = new HashSet<>();
 
 	public User() {
+		addProfile(Profile.USUARIO);
 	}
 
-	public User(Integer id, String name, String photo, String email, String password) {
+	public User(Integer id, String name, String photo, String cpf,  String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.photo = photo;
+		this.cpf = cpf;
 		this.email = email;
 		this.password = password;
+		addProfile(Profile.USUARIO);
 	}
 
 	public Integer getId() {
@@ -84,6 +106,14 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+	public Set<Profile> getProfile(){
+		return profiles.stream().map(x -> Profile.toEnum(x)).collect(Collectors.toSet());
+	}
+	
+	public void addProfile(Profile profile) {
+		profiles.add(profile.getCod());
+	}
+	
 	public List<Document> getDocuments() {
 		return documents;
 	}
@@ -98,6 +128,14 @@ public class User implements Serializable {
 
 	public void setRequests(List<Request> requests) {
 		this.requests = requests;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	
 	@Override
@@ -124,5 +162,6 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
+
 
 }
