@@ -13,7 +13,14 @@ import com.unifica.documentos.entity.Company;
 import com.unifica.documentos.entity.Document;
 import com.unifica.documentos.entity.Request;
 import com.unifica.documentos.entity.User;
+import com.unifica.documentos.entity.documents.CarteiraMotorista;
+import com.unifica.documentos.entity.documents.CarteiraTrabalho;
+import com.unifica.documentos.entity.documents.CertidaoCasamento;
+import com.unifica.documentos.entity.documents.CertidaoNascimento;
 import com.unifica.documentos.entity.documents.Cpf;
+import com.unifica.documentos.entity.documents.Endereco;
+import com.unifica.documentos.entity.documents.Outros;
+import com.unifica.documentos.entity.documents.Rg;
 import com.unifica.documentos.entity.documents.TituloEleitor;
 import com.unifica.documentos.entity.enums.StateRequest;
 import com.unifica.documentos.entity.enums.TypeDocument;
@@ -55,11 +62,20 @@ public class UniApplication implements CommandLineRunner {
 
 		companyRepositories.saveAll(Arrays.asList(c1, c2));
 		
-		Document d1 = new Cpf(null, TypeDocument.CPF, "111.111.111-11", "photo/cpf", u1, sdf.parse("01/01/1991"));
-		Document d2 = new Cpf(null, TypeDocument.CPF, "222.222.22", "photo/cnh", u2, sdf.parse("01/01/1992"));
-		Document d3 = new TituloEleitor(null, TypeDocument.TITULO_ELEITOR, "19991199119", "photo/tituloeleitor", u1,  sdf.parse("23/09/1991"),  sdf.parse("23/09/2007"), "001", "049", "Criciuma");
+		Document d1 = new CarteiraMotorista(null, TypeDocument.CARTEIRA_MOTORISTA, "32165432", "photocarteira.jpg", u1, sdf.parse("01/01/2025"), sdf.parse("01/01/2020"), "AB", "#####", "#####");
+		Document d2 = new CarteiraTrabalho(null, TypeDocument.CARTEIRA_TRABALHO, "1234", "photocarteiratrabalho.jps", u1, "12345678912", "E", "SC");
+		Document d3 = new CertidaoCasamento(null, TypeDocument.CERTIDAO_CASAMENTO, "133", "certidaocasamento.jpg", u1, "Flavia Acosta", "11122233345", sdf.parse("09/02/1994"), "Porto Alegre", "Marcos da Silva", "Luciane Acosta", sdf.parse("01/01/2020"), "Comunhão parcial de bens", "sem observações");
+		Document d4 = new CertidaoNascimento(null, TypeDocument.CERTIDAO_NASCIMENTO, "321654", "certid.jpg", u1, "Titular", "12345678909", sdf.parse("01/01/2020"), "Ararangua", "Ararangua", "Hospital Regional", "M", "Antonio Oliveira e Silvia de Souza", "Maria Leopoldo e Avelino Leopoldo", "Maria minervina e Lorival Gomes", "sem observações", "123");
+		Document d5 = new Cpf(null, TypeDocument.CPF, "111.111.111-11", "photo/cpf", u1, sdf.parse("01/01/1991"));
+		Document d6 = new Endereco(null, TypeDocument.ENDERECO, "123", "compronte.jpg", u1, "Estrada Geral", "Apto 101 Bloco B", "88900555", "122", "Ararangua", "SC");
+		Document d7 = new Outros(null, TypeDocument.OUTROS, "123465", "outros.jpg", u1, "Carteira de vacinação", "Dados seguem na foto");
+		Document d8 = new Rg(null, TypeDocument.RG, "12346578", "rg.jpg", u1, sdf.parse("01/01/2020"), sdf.parse("01/01/2000"), "Ararangua", "Silvia de Souza Gomes", "Antonio Leopoldo de Oliveira", "SSP/SC");
+		Document d9 = new TituloEleitor(null, TypeDocument.TITULO_ELEITOR, "19991199119", "photo/tituloeleitor", u1,  sdf.parse("23/09/1991"),  sdf.parse("23/09/2007"), "001", "049", "Criciuma");
 		
-		documentRepositories.saveAll(Arrays.asList(d1, d2, d3));
+		Document d20 = new Cpf(null, TypeDocument.CPF, "222.222.222-22", "photo/cnh", u2, sdf.parse("01/01/1992"));
+		
+		
+		documentRepositories.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
 				
 		Request r1 = new Request(null, sdf.parse("01/01/1999"), StateRequest.AWAIT, u1, c1);
 		Request r2 = new Request(null, sdf.parse("09/09/2020"), StateRequest.AWAIT, u2, c2);

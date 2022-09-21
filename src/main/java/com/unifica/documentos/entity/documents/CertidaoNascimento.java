@@ -20,7 +20,8 @@ public class CertidaoNascimento extends Document{
 	private String localNascimento;
 	private String sexo;
 	private String filiacao;
-	private String avos;
+	private String avosPaternos;
+	private String avosMaternos;
 	private String numeroDnv;
 	private String observacao;
 	
@@ -41,7 +42,8 @@ public class CertidaoNascimento extends Document{
 			String localNascimento,
 			String sexo,
 			String filiacao,
-			String avos,
+			String avosPaternos,
+			String avosMaternos,
 			String numeroDnv,
 			String observacao) {
 		super(id, type, numberDocument, photoDocument, user);
@@ -53,7 +55,8 @@ public class CertidaoNascimento extends Document{
 		this.localNascimento = localNascimento;
 		this.sexo = sexo;
 		this.filiacao = filiacao;
-		this.avos = avos;
+		this.avosPaternos = avosPaternos;
+		this.avosMaternos = avosMaternos;
 		this.observacao = observacao;
 		this.numeroDnv = numeroDnv;	
 	}
@@ -114,12 +117,20 @@ public class CertidaoNascimento extends Document{
 		this.filiacao = filiacao;
 	}
 
-	public String getAvos() {
-		return avos;
+	public String getAvosPaternos() {
+		return avosPaternos;
 	}
 
-	public void setAvos(String avos) {
-		this.avos = avos;
+	public void setAvosPaternos(String avosPaternos) {
+		this.avosPaternos = avosPaternos;
+	}
+	
+	public String getAvosMaternos() {
+		return avosMaternos;
+	}
+
+	public void setAvosMaternos(String avosMaternos) {
+		this.avosMaternos = avosMaternos;
 	}
 
 	public String getNumeroDnv() {

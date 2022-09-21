@@ -2,8 +2,16 @@ package com.unifica.documentos.entity.enums;
 
 public enum TypeDocument {
 	
-	CPF(1, "CPF"),
-	TITULO_ELEITOR(2, "Titulo de Eleitor");
+	CARTEIRA_MOTORISTA(1, "Carteira de Motorista"),
+	CARTEIRA_TRABALHO(2, "Carteira de Trabalho"),
+	CERTIDAO_CASAMENTO(3, "Certidão de Casamento"),
+	CERTIDAO_NASCIMENTO(4, "Certidão de Nascimento"),
+	CPF(5, "CPF"),
+	ENDERECO(6, "Endereço"),
+	OUTROS(7, "Outros"),
+	RG(8, "RG"),
+	TITULO_ELEITOR(9, "Titulo de Eleitor");
+	
 	
 	private int cod;
 	private String description;
