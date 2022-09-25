@@ -43,7 +43,6 @@ public class UserService {
 	}
 	
 	public User insertUser(User objUser) {
-		System.out.print(objUser.getPassword());
 		objUser.setId(null);
 		objUser.setPassword(encoder.encode(objUser.getPassword()));
 		return userRepositories.save(objUser);

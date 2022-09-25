@@ -43,10 +43,6 @@ public class UserResource {
 	
 	@PostMapping
 	public ResponseEntity<Void> insertUser(@RequestBody UserNewDTO userNewDto){	
-		System.out.println("email ====>" + userNewDto.getEmail());
-		System.out.println("name =====>" + userNewDto.getName());
-		System.out.println("Password =>" + userNewDto.getPassword());
-		System.out.println("cpf ======>" + userNewDto.getCpf());
 		User objUser = userService.fromDto(userNewDto);
 		objUser = userService.insertUser(objUser);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()

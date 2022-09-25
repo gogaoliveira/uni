@@ -26,7 +26,7 @@ import com.unifica.documentos.security.JWTUtil;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	private static final String[] PUBLIC_MATCHERS = { "/usuarios" };
+	private static final String[] PUBLIC_MATCHERS = { "/usuarios/**", "/usuarios" };
 	
 	@Autowired
 	private UserDetailsService userDetailsService;

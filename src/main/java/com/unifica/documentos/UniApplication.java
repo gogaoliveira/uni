@@ -75,7 +75,7 @@ public class UniApplication implements CommandLineRunner {
 		Document d20 = new Cpf(null, TypeDocument.CPF, "222.222.222-22", "photo/cnh", u2, sdf.parse("01/01/1992"));
 		
 		
-		documentRepositories.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
+		documentRepositories.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9, d20));
 				
 		Request r1 = new Request(null, sdf.parse("01/01/1999"), StateRequest.AWAIT, u1, c1);
 		Request r2 = new Request(null, sdf.parse("09/09/2020"), StateRequest.AWAIT, u2, c2);

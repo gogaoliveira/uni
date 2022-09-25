@@ -73,7 +73,7 @@ public abstract class Document implements Serializable {
 	public void setPhotoDocument(String photoDocument) {
 		this.photoDocument = photoDocument;
 	}
-
+	
 	public User getUser() {
 		return user;
 	}
@@ -81,6 +81,7 @@ public abstract class Document implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 
 	@Override
 	public int hashCode() {
