@@ -62,9 +62,9 @@ public class UniApplication implements CommandLineRunner {
 
 		companyRepositories.saveAll(Arrays.asList(c1, c2));
 		
-		Document d1 = new CarteiraMotorista(null, TypeDocument.CARTEIRA_MOTORISTA, "32165432", "photocarteira.jpg", u1, sdf.parse("01/01/2025"), sdf.parse("01/01/2020"), "AB", "#####", "#####");
+		Document d1 = new CarteiraMotorista(null, TypeDocument.CARTEIRA_MOTORISTA, "32165432", "photocarteira.jpg", u1, sdf.parse("01/01/2025"), sdf.parse("01/01/2020"), "AB", "#####", "#####", "sem observações");
 		Document d2 = new CarteiraTrabalho(null, TypeDocument.CARTEIRA_TRABALHO, "1234", "photocarteiratrabalho.jps", u1, "12345678912", "E", "SC");
-		Document d3 = new CertidaoCasamento(null, TypeDocument.CERTIDAO_CASAMENTO, "133", "certidaocasamento.jpg", u1, "Flavia Acosta", "11122233345", sdf.parse("09/02/1994"), "Porto Alegre", "Marcos da Silva", "Luciane Acosta", sdf.parse("01/01/2020"), "Comunhão parcial de bens", "sem observações");
+		Document d3 = new CertidaoCasamento(null, TypeDocument.CERTIDAO_CASAMENTO, "133", "certidaocasamento.jpg", u1, "Flavia Acosta", "11122233345", sdf.parse("09/02/1994"), "Porto Alegre", "Marcos da Silva", "Luciane Acosta", sdf.parse("01/01/2020"), "A", "sem observações");
 		Document d4 = new CertidaoNascimento(null, TypeDocument.CERTIDAO_NASCIMENTO, "321654", "certid.jpg", u1, "Titular", "12345678909", sdf.parse("01/01/2020"), "Ararangua", "Ararangua", "Hospital Regional", "M", "Antonio Oliveira e Silvia de Souza", "Maria Leopoldo e Avelino Leopoldo", "Maria minervina e Lorival Gomes", "sem observações", "123");
 		Document d5 = new Cpf(null, TypeDocument.CPF, "111.111.111-11", "photo/cpf", u1, sdf.parse("01/01/1991"));
 		Document d6 = new Endereco(null, TypeDocument.ENDERECO, "123", "compronte.jpg", u1, "Estrada Geral", "Apto 101 Bloco B", "88900555", "122", "Ararangua", "SC");

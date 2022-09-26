@@ -67,7 +67,7 @@ public class DocumentResource {
 
 	// ==========>Motorista<==========
 
-	@PostMapping(value = "Motorista")
+	@PostMapping(value = "motorista")
 	public ResponseEntity<Void> insert(@RequestBody CarteiraMotoristaDTO obj) {
 		CarteiraMotorista newObj = docserv.MotoristaDtoFromMotorista(obj);
 		newObj = docserv.insert(newObj);
@@ -75,7 +75,7 @@ public class DocumentResource {
 		return ResponseEntity.created(uri).build();
 	}
 
-	@PutMapping(value = "Motorista/{id}")
+	@PutMapping(value = "motorista/{id}")
 	public ResponseEntity<Void> update(@RequestBody CarteiraMotoristaDTO obj, @PathVariable Integer id) {
 		CarteiraMotorista attObj = docserv.MotoristaDtoFromMotorista(obj);
 		attObj.setId(id);

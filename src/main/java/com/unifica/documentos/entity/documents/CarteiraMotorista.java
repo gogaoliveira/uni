@@ -34,13 +34,15 @@ public class CarteiraMotorista extends Document{
 			Date primeiraHabilitacao,
 			String categoria,
 			String permissao,
-			String ACC) {
+			String ACC,
+			String observacoes) {
 		super(id, type, numberDocument, photoDocument, user);
 		this.validade = validade;
 		this.primeiraHabilitacao = primeiraHabilitacao;
 		this.categoria = categoria;
 		this.permissao = permissao;
 		this.ACC = ACC;
+		this.observacoes = observacoes;
 	}
 
 	public Date getValidade() {

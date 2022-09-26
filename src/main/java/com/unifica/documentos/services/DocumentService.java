@@ -90,7 +90,8 @@ public class DocumentService {
 	public CarteiraMotorista MotoristaDtoFromMotorista(CarteiraMotoristaDTO dto) {
 		return new CarteiraMotorista(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
 				userService.find(dto.getUser()), dto.getValidade(), dto.getPrimeiraHabilitacao(), dto.getCategoria(),
-				dto.getPermissao(), dto.getAcc());
+				dto.getPermissao(), dto.getAcc(), dto.getObservacoes());
+		
 	}
 
 	public CarteiraTrabalho TrabalhoDtoFromTrabalho(CarteiraTrabalhoDTO dto) {
@@ -108,9 +109,9 @@ public class DocumentService {
 	public CertidaoNascimento NascimentoDtoFromNascimento(CertidaoNascimentoDTO dto) {
 		return new CertidaoNascimento(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
 				userService.find(dto.getUser()), dto.getTipo(), dto.getCpf(), dto.getDataNascimento(),
-				dto.getLocalNascimento(), dto.getSexo(), dto.getFiliacao(), dto.getAvosPaternos(),
-				dto.getAvosMaternos(), dto.getNumeroDnv(), dto.getObservacao(), dto.getMunicipioDeRegistro(),
-				dto.getNaturalidade());
+				dto.getNaturalidade(), dto.getMunicipioDeRegistro(), dto.getLocalNascimento(), dto.getSexo(),
+				dto.getFiliacao(), dto.getAvosPaternos(), dto.getAvosMaternos(), dto.getNumeroDnv(),
+				dto.getObservacao());
 
 	}
 
