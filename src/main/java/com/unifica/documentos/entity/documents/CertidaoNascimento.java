@@ -24,6 +24,7 @@ public class CertidaoNascimento extends Document{
 	private String avosMaternos;
 	private String numeroDnv;
 	private String observacao;
+	private String name;
 	
 	public CertidaoNascimento() {
 	}
@@ -59,6 +60,7 @@ public class CertidaoNascimento extends Document{
 		this.avosMaternos = avosMaternos;
 		this.observacao = observacao;
 		this.numeroDnv = numeroDnv;	
+		this.name = "Certidão de Nascimento";
 	}
 
 	public String getCpf() {
@@ -159,6 +161,14 @@ public class CertidaoNascimento extends Document{
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

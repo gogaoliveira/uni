@@ -18,6 +18,7 @@ public class CarteiraMotorista extends Document{
 	private String observacoes;
 	private String permissao;
 	private String ACC;
+	private String name;
 	
 	public CarteiraMotorista() {
 	}
@@ -43,6 +44,7 @@ public class CarteiraMotorista extends Document{
 		this.permissao = permissao;
 		this.ACC = ACC;
 		this.observacoes = observacoes;
+		this.name = "Carteira de Motorista";
 	}
 
 	public Date getValidade() {
@@ -95,6 +97,18 @@ public class CarteiraMotorista extends Document{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

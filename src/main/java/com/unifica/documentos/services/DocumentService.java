@@ -77,11 +77,11 @@ public class DocumentService {
 		Optional<Document> obj = documentRepositories.findById(id);
 		return obj.orElse(null);
 	}
-
+	
 	public void deleteDocument(Integer id) {
 		find(id);
 		try {
-
+			documentRepositories.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possivel excluir o documento");
 		}

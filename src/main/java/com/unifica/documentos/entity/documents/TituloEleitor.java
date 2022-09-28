@@ -17,6 +17,7 @@ public class TituloEleitor extends Document{
 	private String zona;
 	private String secao;
 	private String municipio;
+	private String name;
 	
 	public TituloEleitor() {
 	}
@@ -38,6 +39,7 @@ public class TituloEleitor extends Document{
 		this.zona = zona;
 		this.secao = secao;
 		this.municipio = municipio;
+		this.name = "Título de Eleitor";
 	}
 
 	public Date getDataNascimento() {
@@ -78,6 +80,14 @@ public class TituloEleitor extends Document{
 
 	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

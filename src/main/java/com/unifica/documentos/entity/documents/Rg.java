@@ -18,6 +18,7 @@ public class Rg extends Document {
 	private String nomeMae;
 	private String nomePai;
 	private String OrgaoExpedidor;
+	private String name;
 
 	public Rg() {
 	}
@@ -31,6 +32,7 @@ public class Rg extends Document {
 		this.nomeMae = nomeMae;
 		this.nomePai = nomePai;
 		this.OrgaoExpedidor = OrgaoExpedidor;
+		this.name = "RG";
 	}
 
 	public Date getDataExpedicao() {
@@ -79,6 +81,14 @@ public class Rg extends Document {
 
 	public void setOrgaoExpedidor(String orgaoExpedidor) {
 		OrgaoExpedidor = orgaoExpedidor;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

@@ -15,7 +15,8 @@ public class Endereco extends Document{
 	private String cep;
 	private String numero;
 	private String cidade;
-	private String uf;	
+	private String uf;
+	private String name;
 	
 	public Endereco() {
 	}
@@ -39,6 +40,7 @@ public class Endereco extends Document{
 		this.numero = numero;
 		this.cidade = cidade;
 		this.uf = uf;
+		this.name = "Endereço";
 	}
 
 	public String getEndereco() {
@@ -91,6 +93,14 @@ public class Endereco extends Document{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

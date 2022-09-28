@@ -12,6 +12,7 @@ public class Outros extends Document{
 	
 	private String nomeDocumento;
 	private String dados;
+	private String name;
 	
 	public Outros() {
 	}
@@ -20,6 +21,7 @@ public class Outros extends Document{
 		super(id, type, numberDocument, photoDocument, user);
 		this.nomeDocumento = nomeDocumento;
 		this.dados = dados;
+		this.name = "Outros";
 	}
 
 	public String getNomeDocumento() {
@@ -40,6 +42,14 @@ public class Outros extends Document{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

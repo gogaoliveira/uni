@@ -21,6 +21,7 @@ public class CertidaoCasamento extends Document{
 	private Date dataCasamento;
 	private String regimeBens;
 	private String observacoes;
+	private String name; 
 	
 	public CertidaoCasamento() {
 	}
@@ -50,6 +51,7 @@ public class CertidaoCasamento extends Document{
 		this.dataCasamento = dataCasamento;
 		this.regimeBens = regimeBens;
 		this.observacoes = observacoes;
+		this.name = "Certidão de Casamento";
 	}
 
 	public String getNomeConjuge() {
@@ -126,6 +128,14 @@ public class CertidaoCasamento extends Document{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

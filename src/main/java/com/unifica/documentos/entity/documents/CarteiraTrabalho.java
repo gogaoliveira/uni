@@ -13,6 +13,7 @@ public class CarteiraTrabalho extends Document{
 	private String pis;
 	private String serie;
 	private String uf;
+	private String name;
 	
 	
 	public CarteiraTrabalho() {
@@ -31,6 +32,7 @@ public class CarteiraTrabalho extends Document{
 		this.pis = pis;
 		this.serie = serie;
 		this.uf = uf;
+		this.name = "Carteira de Trabalho";
 	}
 
 	public String getPis() {
@@ -59,6 +61,14 @@ public class CarteiraTrabalho extends Document{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	

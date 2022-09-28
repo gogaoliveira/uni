@@ -13,6 +13,7 @@ public class Cpf extends Document{
 	private static final long serialVersionUID = 1L;
 	
 	private Date dataNascimento;
+	private String name;
 	
 	public Cpf() {
 	}
@@ -20,6 +21,7 @@ public class Cpf extends Document{
 	public Cpf(Integer id, TypeDocument type, String numberDocument, String photoDocument, User user, Date dataNascimento) {
 		super(id, type, numberDocument, photoDocument, user);
 		this.dataNascimento = dataNascimento;
+		this.name = "CPF";
 	}
 
 	public Date getDataNascimento() {
@@ -28,6 +30,14 @@ public class Cpf extends Document{
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

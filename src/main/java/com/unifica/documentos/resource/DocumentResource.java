@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,6 +46,16 @@ public class DocumentResource {
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		Document obj = docserv.find(id);
 		return ResponseEntity.ok().body(obj);
+	}
+	/*@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> deleteUser(@PathVariable Integer id){
+		userService.deleteUser(id);
+		return ResponseEntity.noContent().build();
+	}*/
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> deleteDoc(@PathVariable Integer id){
+		docserv.deleteDocument(id);
+		return ResponseEntity.noContent().build();
 	}
 
 	// ==========>CPF<==========
