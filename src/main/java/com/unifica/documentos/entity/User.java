@@ -44,18 +44,21 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user")
 	private List<Document> documents = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Request> requests = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "userCompany")
+	private List<Request> companyRequests = new ArrayList<>();
 	
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="PROFILES")
 	private Set<Integer> profiles = new HashSet<>();
 
 	public User() {
-		addProfile(Profile.USUARIO);
 	}
 
-	public User(Integer id, String name, String photo, String cpf,  String email, String password) {
+	public User(Integer id, String name, String photo, String cpf,  String email, String password, Set<Integer> profiles) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -63,7 +66,7 @@ public class User implements Serializable {
 		this.cpf = cpf;
 		this.email = email;
 		this.password = password;
-		addProfile(Profile.USUARIO);
+		this.profiles = profiles;
 	}
 
 	public Integer getId() {

@@ -11,5 +11,6 @@ public interface UserRepositories extends JpaRepository<User, Integer>{
 	
 	@Transactional(readOnly = true)
 	User findByEmail(String email);
+	
 }
 

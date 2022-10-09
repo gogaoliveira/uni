@@ -25,25 +25,26 @@ public class Request implements Serializable {
 	private Date date;
 	private Integer state;
 
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "company_id")
-	private Company company;
+	private User userCompany;
 
 	public Request() {
 	}
 
-	public Request(Integer id, Date date, StateRequest state, User user, Company company) {
+	public Request(Integer id, Date date, StateRequest state, User user, User userCompany) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.state = state.getCod();
 		this.user = user;
-		this.company = company;
+		this.userCompany = userCompany;
 	}
 
 	public Integer getId() {
@@ -78,12 +79,12 @@ public class Request implements Serializable {
 		this.user = user;
 	}
 
-	public Company getCompany() {
-		return company;
+	public User getUserCompany() {
+		return userCompany;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public void setUserCompany(User userCompany) {
+		this.userCompany = userCompany;
 	}
 
 	public static long getSerialversionuid() {

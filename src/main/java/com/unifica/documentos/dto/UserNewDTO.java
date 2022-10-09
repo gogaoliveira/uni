@@ -1,6 +1,8 @@
 package com.unifica.documentos.dto;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserNewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -9,6 +11,7 @@ public class UserNewDTO implements Serializable{
 	private String cpf;
 	private String email;
 	private String password;
+	private Set<Integer> profile = new HashSet<>();
 	
 	public UserNewDTO() {
 	}
@@ -41,6 +44,14 @@ public class UserNewDTO implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Set<Integer> getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Set<Integer> profile) {
+		this.profile = profile;
 	}
 	
 

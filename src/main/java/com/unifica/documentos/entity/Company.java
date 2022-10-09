@@ -1,45 +1,31 @@
 package com.unifica.documentos.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-@Entity
-@Table(name = "Companies")
-public class Company implements Serializable{
+public class Company implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+ 	private Integer id;
 	private String name;
 	private String cnpj;
 	private String logo;
+
 	private String email;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "company")
-	private List<Request> requests = new ArrayList<>();
-	
+
+
+	private String password;
+
 	public Company() {
 	}
 
-	public Company(Integer id, String name, String cnpj, String logo, String email) {
+	public Company(Integer id, String name, String cnpj, String logo, String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.cnpj = cnpj;
 		this.logo = logo;
 		this.email = email;
+		this.password = password;
 	}
 
 	public Integer getId() {
@@ -85,15 +71,17 @@ public class Company implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	public List<Request> getRequests() {
-		return requests;
+
+
+
+	public String getPassword() {
+		return password;
 	}
 
-	public void setRequests(List<Request> requests) {
-		this.requests = requests;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

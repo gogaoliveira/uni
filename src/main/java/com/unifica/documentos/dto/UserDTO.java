@@ -47,6 +47,8 @@ public class UserDTO {
 		this.photo = photo;
 	}
 
+
+
 	
 
 }

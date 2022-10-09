@@ -42,6 +42,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			Authentication auth = authenticationManager.authenticate(authToken);
 			return auth;
 		}catch(IOException e) {
+			
 			throw new RuntimeException(e);
 		}
 	}
@@ -53,11 +54,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 											Authentication auth) throws IOException, ServletException{
 		String username = ((UserSS) auth.getPrincipal()).getUsername();
 		String idUser = ((UserSS) auth.getPrincipal()).getId()+"";
+		String profile = ((UserSS) auth.getPrincipal()).getAuthorities().toString();
 		String token = jwtUtil.generateToken(username);
 		response.setHeader("access-control-expose-headers", "*");
 		response.setHeader("Authorization", "Bearer " + token);
 		response.setHeader("user", idUser );
-		System.out.println("USER===============>>>>>>>> " + idUser);
+		response.setHeader("profile", profile);
+		
 		
 	}
 	

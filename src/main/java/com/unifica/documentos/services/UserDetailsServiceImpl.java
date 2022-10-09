@@ -12,20 +12,20 @@ import com.unifica.documentos.security.UserSS;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-	
+
 	@Autowired
 	private UserRepositories userRepositories;
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		User user = userRepositories.findByEmail(email);
+
 		if (user == null) {
 			throw new UsernameNotFoundException(email);
+
 		}
-		
+
 		return new UserSS(user.getId(), user.getEmail(), user.getPassword(), user.getProfile());
 	}
-	
-
 
 }
