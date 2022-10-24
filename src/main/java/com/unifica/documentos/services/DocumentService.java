@@ -77,7 +77,7 @@ public class DocumentService {
 		Optional<Document> obj = documentRepositories.findById(id);
 		return obj.orElse(null);
 	}
-	
+
 	public void deleteDocument(Integer id) {
 		find(id);
 		try {
@@ -88,65 +88,61 @@ public class DocumentService {
 	}
 
 	public CarteiraMotorista MotoristaDtoFromMotorista(CarteiraMotoristaDTO dto) {
-		return new CarteiraMotorista(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getValidade(), dto.getPrimeiraHabilitacao(), dto.getCategoria(),
-				dto.getPermissao(), dto.getAcc(), dto.getObservacoes());
-		
+		return new CarteiraMotorista(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getValidade(), dto.getPrimeiraHabilitacao(), dto.getCategoria(), dto.getPermissao(), dto.getAcc(),
+				dto.getObservacoes());
+
 	}
 
 	public CarteiraTrabalho TrabalhoDtoFromTrabalho(CarteiraTrabalhoDTO dto) {
-		return new CarteiraTrabalho(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getPis(), dto.getSerie(), dto.getUf());
+		return new CarteiraTrabalho(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getPis(), dto.getSerie(), dto.getUf());
 	}
 
 	public CertidaoCasamento CasamentoDtoFromCasamento(CertidaoCasamentoDTO dto) {
-		return new CertidaoCasamento(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getNomeConjuge(), dto.getCpfConjuge(), dto.getNascimentoConjuge(),
-				dto.getCidadeNascimentoConjuge(), dto.getPaiConjunge(), dto.getMaeConjuge(), dto.getDataCasamento(),
-				dto.getRegimeBens(), dto.getObservacoes());
+		return new CertidaoCasamento(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getNomeConjuge(), dto.getCpfConjuge(), dto.getNascimentoConjuge(), dto.getCidadeNascimentoConjuge(),
+				dto.getPaiConjunge(), dto.getMaeConjuge(), dto.getDataCasamento(), dto.getRegimeBens(),
+				dto.getObservacoes());
 	}
 
 	public CertidaoNascimento NascimentoDtoFromNascimento(CertidaoNascimentoDTO dto) {
-		return new CertidaoNascimento(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getTipo(), dto.getCpf(), dto.getDataNascimento(),
-				dto.getNaturalidade(), dto.getMunicipioDeRegistro(), dto.getLocalNascimento(), dto.getSexo(),
-				dto.getFiliacao(), dto.getAvosPaternos(), dto.getAvosMaternos(), dto.getNumeroDnv(),
-				dto.getObservacao());
+		return new CertidaoNascimento(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getTipo(), dto.getCpf(), dto.getDataNascimento(), dto.getNaturalidade(),
+				dto.getMunicipioDeRegistro(), dto.getLocalNascimento(), dto.getSexo(), dto.getFiliacao(),
+				dto.getAvosPaternos(), dto.getAvosMaternos(), dto.getNumeroDnv(), dto.getObservacao());
 
 	}
 
 	public Cpf cpfDtoFromCpf(CpfDTO dto) {
-		return new Cpf(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getDataNascimento());
+		return new Cpf(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), dto.getPrivateDocument(),
+				dto.getDataNascimento());
 	}
 
 	public Endereco enderecoDtoFromEndereco(EnderecoDTO dto) {
-		return new Endereco(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getEndereco(), dto.getComplemento(), dto.getCep(), dto.getNumero(),
-				dto.getCidade(), dto.getUf());
+		return new Endereco(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getEndereco(), dto.getComplemento(), dto.getCep(), dto.getNumero(), dto.getCidade(), dto.getUf());
 	}
 
 	public Outros outrosDtoFromOutros(OutrosDTO dto) {
-		return new Outros(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getNomeDocumento(), dto.getDados());
+		return new Outros(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getNomeDocumento(), dto.getDados());
 	}
 
 	public Rg rgDtoFromRg(RgDTO dto) {
-		return new Rg(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getDataExpedicao(), dto.getDataNascimento(), dto.getNaturalidade(),
-				dto.getNomePai(), dto.getNomeMae(), dto.getOrgaoExpedidor());
+		return new Rg(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getDataExpedicao(), dto.getDataNascimento(), dto.getNaturalidade(), dto.getNomePai(),
+				dto.getNomeMae(), dto.getOrgaoExpedidor());
 	}
 
 	public TituloEleitor eleitorDtoFromEleitor(TituloEleitorDTO dto) {
-		return new TituloEleitor(null, dto.getType(), dto.getNumberDocument(), dto.getPhotoDocument(),
-				userService.find(dto.getUser()), dto.getDataNascimento(), dto.getDataEmissao(), dto.getZona(),
-				dto.getSecao(), dto.getMunicipio());
+		return new TituloEleitor(null, dto.getType(), dto.getNumberDocument(), userService.find(dto.getUser()), "N",
+				dto.getDataNascimento(), dto.getDataEmissao(), dto.getZona(), dto.getSecao(), dto.getMunicipio());
 	}
 
 	// ==========>CPF<==========
 	public Cpf insert(Cpf obj) {
 		obj.setId(null);
-		// objCpf.setUser(objCpf.getUser());
 		return cpfRepositories.save(obj);
 	}
 
@@ -241,5 +237,9 @@ public class DocumentService {
 	public TituloEleitor update(TituloEleitor obj) {
 		find(obj.getId());
 		return eleitorRepositories.save(obj);
+	}
+	
+	public String getNamePhoto1(Integer id) {
+		return find(id).getPhoto1();
 	}
 }

@@ -7,9 +7,9 @@ import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.enums.TypeDocument;
 
 @Entity
-public class Endereco extends Document{
+public class Endereco extends Document {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String Endereco;
 	private String complemento;
 	private String cep;
@@ -17,23 +17,13 @@ public class Endereco extends Document{
 	private String cidade;
 	private String uf;
 	private String name;
-	
+
 	public Endereco() {
 	}
 
-	public Endereco(
-			Integer id, 
-			TypeDocument type,
-			String numberDocument, 
-			String photoDocument, 
-			User user,
-			String Endereco,
-			String complemento,
-			String cep,
-			String numero,
-			String cidade,
-			String uf) {
-		super(id, type, numberDocument, photoDocument, user);
+	public Endereco(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, String Endereco,
+			String complemento, String cep, String numero, String cidade, String uf) {
+		super(id, type, numberDocument, user, privateDocument);
 		this.Endereco = Endereco;
 		this.complemento = complemento;
 		this.cep = cep;
@@ -103,6 +93,4 @@ public class Endereco extends Document{
 		this.name = name;
 	}
 
-	
-	
 }

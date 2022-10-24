@@ -7,11 +7,11 @@ public class CarteiraTrabalhoDTO {
 	
 	private TypeDocument type;
 	private String numberDocument;
-	private String photoDocument;
 	private Integer user;
 	private String pis;
 	private String serie;
 	private String uf;
+	private String privateDocument;
 	
 	public CarteiraTrabalhoDTO() {
 	}
@@ -19,7 +19,6 @@ public class CarteiraTrabalhoDTO {
 	public CarteiraTrabalhoDTO(CarteiraTrabalho obj) {
 		this.type = obj.getType();
 		this.numberDocument = obj.getNumberDocument();
-		this.photoDocument = obj.getPhotoDocument();
 		this.user = obj.getUser().getId();
 		this.pis = obj.getPis();
 		this.serie = obj.getSerie();
@@ -40,14 +39,6 @@ public class CarteiraTrabalhoDTO {
 
 	public void setNumberDocument(String numberDocument) {
 		this.numberDocument = numberDocument;
-	}
-
-	public String getPhotoDocument() {
-		return photoDocument;
-	}
-
-	public void setPhotoDocument(String photoDocument) {
-		this.photoDocument = photoDocument;
 	}
 
 	public Integer getUser() {
@@ -80,6 +71,14 @@ public class CarteiraTrabalhoDTO {
 
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+
+	public String getPrivateDocument() {
+		return privateDocument;
+	}
+
+	public void setPrivateDocument(String privateDocument) {
+		this.privateDocument = privateDocument;
 	}
 	
 	

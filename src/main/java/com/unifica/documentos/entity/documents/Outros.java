@@ -7,18 +7,18 @@ import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.enums.TypeDocument;
 
 @Entity
-public class Outros extends Document{
+public class Outros extends Document {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String nomeDocumento;
 	private String dados;
 	private String name;
-	
+
 	public Outros() {
 	}
 
-	public Outros(Integer id, TypeDocument type, String numberDocument, String photoDocument, User user, String nomeDocumento,  String dados) {
-		super(id, type, numberDocument, photoDocument, user);
+	public Outros(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, String nomeDocumento, String dados) {
+		super(id, type, numberDocument, user, privateDocument);
 		this.nomeDocumento = nomeDocumento;
 		this.dados = dados;
 		this.name = "Outros";
@@ -51,6 +51,5 @@ public class Outros extends Document{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
 }

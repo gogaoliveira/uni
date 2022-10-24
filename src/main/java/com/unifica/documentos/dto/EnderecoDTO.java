@@ -7,7 +7,6 @@ public class EnderecoDTO {
 	
 	private TypeDocument type;
 	private String numberDocument;
-	private String photoDocument;
 	private Integer user;
 	private String complemento;
 	private String cep;
@@ -15,6 +14,7 @@ public class EnderecoDTO {
 	private String cidade;
 	private String uf;
 	private String endereco;
+	private String privateDocument;
 
 	public EnderecoDTO() {
 	}
@@ -22,7 +22,6 @@ public class EnderecoDTO {
 	public EnderecoDTO(Endereco obj) {
 		this.type = obj.getType();
 		this.numberDocument = obj.getNumberDocument();
-		this.photoDocument = obj.getPhotoDocument();
 		this.user = obj.getUser().getId();
 		this.complemento = obj.getComplemento();
 		this.cep = obj.getCep();
@@ -46,14 +45,6 @@ public class EnderecoDTO {
 
 	public void setNumberDocument(String numberDocument) {
 		this.numberDocument = numberDocument;
-	}
-
-	public String getPhotoDocument() {
-		return photoDocument;
-	}
-
-	public void setPhotoDocument(String photoDocument) {
-		this.photoDocument = photoDocument;
 	}
 
 	public Integer getUser() {
@@ -110,6 +101,14 @@ public class EnderecoDTO {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getPrivateDocument() {
+		return privateDocument;
+	}
+
+	public void setPrivateDocument(String privateDocument) {
+		this.privateDocument = privateDocument;
 	}
 	
 }

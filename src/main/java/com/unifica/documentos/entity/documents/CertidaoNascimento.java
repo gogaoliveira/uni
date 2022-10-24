@@ -9,9 +9,9 @@ import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.enums.TypeDocument;
 
 @Entity
-public class CertidaoNascimento extends Document{
+public class CertidaoNascimento extends Document {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String tipo;
 	private String cpf;
 	private Date dataNascimento;
@@ -25,29 +25,14 @@ public class CertidaoNascimento extends Document{
 	private String numeroDnv;
 	private String observacao;
 	private String name;
-	
+
 	public CertidaoNascimento() {
 	}
 
-	public CertidaoNascimento(
-			Integer id, 
-			TypeDocument type, 
-			String numberDocument, 
-			String photoDocument, 
-			User user, 
-			String tipo,
-			String cpf,
-			Date dataNascimento,
-			String Naturalidade,
-			String MunicipioDeRegistro,
-			String localNascimento,
-			String sexo,
-			String filiacao,
-			String avosPaternos,
-			String avosMaternos,
-			String numeroDnv,
-			String observacao) {
-		super(id, type, numberDocument, photoDocument, user);
+	public CertidaoNascimento(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, String tipo, String cpf,
+			Date dataNascimento, String Naturalidade, String MunicipioDeRegistro, String localNascimento, String sexo,
+			String filiacao, String avosPaternos, String avosMaternos, String numeroDnv, String observacao) {
+		super(id, type, numberDocument, user, privateDocument);
 		this.setTipo(tipo);
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
@@ -59,7 +44,7 @@ public class CertidaoNascimento extends Document{
 		this.avosPaternos = avosPaternos;
 		this.avosMaternos = avosMaternos;
 		this.observacao = observacao;
-		this.numeroDnv = numeroDnv;	
+		this.numeroDnv = numeroDnv;
 		this.name = "Certidão de Nascimento";
 	}
 
@@ -126,7 +111,7 @@ public class CertidaoNascimento extends Document{
 	public void setAvosPaternos(String avosPaternos) {
 		this.avosPaternos = avosPaternos;
 	}
-	
+
 	public String getAvosMaternos() {
 		return avosMaternos;
 	}
@@ -170,9 +155,5 @@ public class CertidaoNascimento extends Document{
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	
-	
-	
 
 }

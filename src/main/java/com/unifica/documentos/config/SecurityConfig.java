@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.unifica.documentos.security.JWTAuthenticationFilter;
 import com.unifica.documentos.security.JWTAuthorizationFilter;
@@ -26,7 +27,7 @@ import com.unifica.documentos.security.JWTUtil;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	private static final String[] PUBLIC_MATCHERS = { "/usuarios/**", "/usuarios", "/pedidos", "/pedidos/**" };
+	private static final String[] PUBLIC_MATCHERS = { "/usuarios/**", "/usuarios", "/pedidos", "/pedidos/**", "/documentos/**", "/documentos/cpf/***" };
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -63,4 +64,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
 	}
+	
+	@Bean(name = "multipartResolver")
+    public CommonsMultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new 
+        CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(1000000000);
+        return multipartResolver;
+      }
+	
 }

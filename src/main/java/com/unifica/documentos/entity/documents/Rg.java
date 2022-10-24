@@ -11,7 +11,7 @@ import com.unifica.documentos.entity.enums.TypeDocument;
 @Entity
 public class Rg extends Document {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Date dataExpedicao;
 	private Date dataNascimento;
 	private String naturalidade;
@@ -23,9 +23,9 @@ public class Rg extends Document {
 	public Rg() {
 	}
 
-	public Rg(Integer id, TypeDocument type, String numberDocument, String photoDocument, User user, Date dataExpedicao,
-			Date dataNascimento, String naturalidade, String nomeMae, String nomePai, String OrgaoExpedidor) {
-		super(id, type, numberDocument, photoDocument, user);
+	public Rg(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, Date dataExpedicao, Date dataNascimento,
+			String naturalidade, String nomeMae, String nomePai, String OrgaoExpedidor) {
+		super(id, type, numberDocument, user, privateDocument);
 		this.dataExpedicao = dataExpedicao;
 		this.dataNascimento = dataNascimento;
 		this.naturalidade = naturalidade;

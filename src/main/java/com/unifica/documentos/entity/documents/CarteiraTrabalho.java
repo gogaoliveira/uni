@@ -7,28 +7,20 @@ import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.enums.TypeDocument;
 
 @Entity
-public class CarteiraTrabalho extends Document{
+public class CarteiraTrabalho extends Document {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String pis;
 	private String serie;
 	private String uf;
 	private String name;
-	
-	
+
 	public CarteiraTrabalho() {
 	}
 
-	public CarteiraTrabalho(
-			Integer id, 
-			TypeDocument type,
-			String numberDocument, 
-			String photoDocument, 
-			User user,
-			String pis,
-			String serie,
+	public CarteiraTrabalho(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, String pis, String serie,
 			String uf) {
-		super(id, type, numberDocument, photoDocument, user);
+		super(id, type, numberDocument, user, privateDocument);
 		this.pis = pis;
 		this.serie = serie;
 		this.uf = uf;
@@ -71,5 +63,4 @@ public class CarteiraTrabalho extends Document{
 		this.name = name;
 	}
 
-	
 }

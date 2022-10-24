@@ -24,7 +24,9 @@ public abstract class Document implements Serializable {
 	private Integer id;
 	private Integer type;
 	private String numberDocument;
-	private String photoDocument;
+	private String photo1;
+	private String photo2;
+	private String privateDocument;
 
 	@JsonIgnore
 	@ManyToOne
@@ -34,12 +36,12 @@ public abstract class Document implements Serializable {
 	public Document() {
 	}
 
-	public Document(Integer id, TypeDocument type, String numberDocument, String photoDocument, User user) {
+	public Document(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument) {
 		this.id = id;
 		this.type = type.getCod();
 		this.numberDocument = numberDocument;
-		this.photoDocument = photoDocument;
 		this.user = user;
+		this.privateDocument = privateDocument;
 	}
 
 	public Integer getId() {
@@ -66,14 +68,22 @@ public abstract class Document implements Serializable {
 		this.numberDocument = numberDocument;
 	}
 
-	public String getPhotoDocument() {
-		return photoDocument;
+	public String getPhoto1() {
+		return photo1;
 	}
 
-	public void setPhotoDocument(String photoDocument) {
-		this.photoDocument = photoDocument;
+	public void setPhoto1(String photo1) {
+		this.photo1 = photo1;
 	}
 	
+	public String getPhoto2() {
+		return photo2;
+	}
+
+	public void setPhoto2(String photo2) {
+		this.photo2 = photo2;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -81,7 +91,6 @@ public abstract class Document implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -107,5 +116,15 @@ public abstract class Document implements Serializable {
 			return false;
 		return true;
 	}
+
+	public String getPrivateDocument() {
+		return privateDocument;
+	}
+
+	public void setPrivateDocument(String privateDocument) {
+		this.privateDocument = privateDocument;
+	}
+
+
 
 }

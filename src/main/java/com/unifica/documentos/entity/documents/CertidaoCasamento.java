@@ -9,9 +9,9 @@ import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.enums.TypeDocument;
 
 @Entity
-public class CertidaoCasamento extends Document{
+public class CertidaoCasamento extends Document {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String nomeConjuge;
 	private String cpfConjuge;
 	private Date nascimentoConjuge;
@@ -21,27 +21,15 @@ public class CertidaoCasamento extends Document{
 	private Date dataCasamento;
 	private String regimeBens;
 	private String observacoes;
-	private String name; 
-	
+	private String name;
+
 	public CertidaoCasamento() {
 	}
 
-	public CertidaoCasamento(
-			Integer id, 
-			TypeDocument type, 
-			String numberDocument, 
-			String photoDocument, 
-			User user, 
-			String nomeConjuge,
-			String cpfConjuge,
-			Date nascimentoConjuge,
-			String cidadeNascimentoConjuge,
-			String paiConjunge,
-			String maeConjuge,
-			Date dataCasamento,
-			String regimeBens,
-			String observacoes) {
-		super(id, type, numberDocument, photoDocument, user);
+	public CertidaoCasamento(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, String nomeConjuge,
+			String cpfConjuge, Date nascimentoConjuge, String cidadeNascimentoConjuge, String paiConjunge,
+			String maeConjuge, Date dataCasamento, String regimeBens, String observacoes) {
+		super(id, type, numberDocument, user, privateDocument);
 		this.nomeConjuge = nomeConjuge;
 		this.cpfConjuge = cpfConjuge;
 		this.nascimentoConjuge = nascimentoConjuge;
@@ -137,8 +125,5 @@ public class CertidaoCasamento extends Document{
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	
-	
 
 }

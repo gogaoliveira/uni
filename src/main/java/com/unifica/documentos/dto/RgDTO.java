@@ -9,7 +9,6 @@ public class RgDTO {
 	
 	private TypeDocument type;
 	private String numberDocument;
-	private String photoDocument;
 	private Integer user;
 	private Date dataExpedicao;
 	private Date dataNascimento;
@@ -17,6 +16,7 @@ public class RgDTO {
 	private String nomeMae;
 	private String nomePai;
 	private String orgaoExpedidor;
+	private String privateDocument;
 
 	public RgDTO() {
 	}
@@ -24,7 +24,6 @@ public class RgDTO {
 	public RgDTO(Rg obj) {
 		this.type = obj.getType();
 		this.numberDocument = obj.getNumberDocument();
-		this.photoDocument = obj.getPhotoDocument();
 		this.user = obj.getUser().getId();
 		this.dataExpedicao = obj.getDataExpedicao();
 		this.dataNascimento = obj.getDataNascimento();
@@ -48,14 +47,6 @@ public class RgDTO {
 
 	public void setNumberDocument(String numberDocument) {
 		this.numberDocument = numberDocument;
-	}
-
-	public String getPhotoDocument() {
-		return photoDocument;
-	}
-
-	public void setPhotoDocument(String photoDocument) {
-		this.photoDocument = photoDocument;
 	}
 
 	public Integer getUser() {
@@ -112,5 +103,13 @@ public class RgDTO {
 
 	public void setOrgaoExpedidor(String orgaoExpedidor) {
 		this.orgaoExpedidor = orgaoExpedidor;
+	}
+
+	public String getPrivateDocument() {
+		return privateDocument;
+	}
+
+	public void setPrivateDocument(String privateDocument) {
+		this.privateDocument = privateDocument;
 	}
 }

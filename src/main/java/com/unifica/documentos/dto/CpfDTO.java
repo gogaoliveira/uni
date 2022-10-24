@@ -9,9 +9,9 @@ public class CpfDTO {
 	
 	private TypeDocument type;
 	private String numberDocument;
-	private String photoDocument;
 	private Integer user;
 	private Date dataNascimento;
+	private String privateDocument;
 
 	public CpfDTO() {
 	}
@@ -19,7 +19,6 @@ public class CpfDTO {
 	public CpfDTO(Cpf obj) {
 		this.type = obj.getType();
 		this.numberDocument = obj.getNumberDocument();
-		this.photoDocument = obj.getPhotoDocument();
 		this.user = obj.getUser().getId();
 		this.dataNascimento = obj.getDataNascimento();
 	}
@@ -40,14 +39,6 @@ public class CpfDTO {
 		this.numberDocument = numberDocument;
 	}
 
-	public String getPhotoDocument() {
-		return photoDocument;
-	}
-
-	public void setPhotoDocument(String photoDocument) {
-		this.photoDocument = photoDocument;
-	}
-
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}
@@ -62,6 +53,14 @@ public class CpfDTO {
 
 	public void setUser(Integer user) {
 		this.user = user;
+	}
+
+	public String getPrivateDocument() {
+		return privateDocument;
+	}
+
+	public void setPrivateDocument(String privateDocument) {
+		this.privateDocument = privateDocument;
 	}
 		
 

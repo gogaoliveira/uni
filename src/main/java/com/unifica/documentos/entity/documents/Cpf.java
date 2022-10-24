@@ -18,8 +18,8 @@ public class Cpf extends Document{
 	public Cpf() {
 	}
 
-	public Cpf(Integer id, TypeDocument type, String numberDocument, String photoDocument, User user, Date dataNascimento) {
-		super(id, type, numberDocument, photoDocument, user);
+	public Cpf(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, Date dataNascimento) {
+		super(id, type, numberDocument, user, privateDocument);
 		this.dataNascimento = dataNascimento;
 		this.name = "CPF";
 	}

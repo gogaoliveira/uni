@@ -9,7 +9,6 @@ public class CarteiraMotoristaDTO {
 	
 	private TypeDocument type;
 	private String numberDocument;
-	private String photoDocument;
 	private Integer user;
 	private Date validade;
 	private Date primeiraHabilitacao;
@@ -17,6 +16,7 @@ public class CarteiraMotoristaDTO {
 	private String observacoes;
 	private String permissao;
 	private String acc;
+	private String privateDocument;
 	
 	
 	public CarteiraMotoristaDTO() {
@@ -25,7 +25,6 @@ public class CarteiraMotoristaDTO {
 	public CarteiraMotoristaDTO(CarteiraMotorista obj) {
 		this.type = obj.getType();
 		this.numberDocument = obj.getNumberDocument();
-		this.photoDocument = obj.getPhotoDocument();
 		this.user = obj.getUser().getId();
 		this.validade = obj.getValidade();
 		this.primeiraHabilitacao = obj.getPrimeiraHabilitacao();
@@ -49,14 +48,6 @@ public class CarteiraMotoristaDTO {
 
 	public void setNumberDocument(String numberDocument) {
 		this.numberDocument = numberDocument;
-	}
-
-	public String getPhotoDocument() {
-		return photoDocument;
-	}
-
-	public void setPhotoDocument(String photoDocument) {
-		this.photoDocument = photoDocument;
 	}
 
 	public Integer getUser() {
@@ -113,6 +104,14 @@ public class CarteiraMotoristaDTO {
 
 	public void setAcc(String acc) {
 		this.acc = acc;
+	}
+
+	public String getPrivateDocument() {
+		return privateDocument;
+	}
+
+	public void setPrivateDocument(String privateDocument) {
+		this.privateDocument = privateDocument;
 	}
 	
 	

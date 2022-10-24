@@ -9,31 +9,22 @@ import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.enums.TypeDocument;
 
 @Entity
-public class TituloEleitor extends Document{
+public class TituloEleitor extends Document {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Date dataNascimento;
 	private Date dataEmissao;
 	private String zona;
 	private String secao;
 	private String municipio;
 	private String name;
-	
+
 	public TituloEleitor() {
 	}
 
-	public TituloEleitor(
-			Integer id, 
-			TypeDocument type,
-			String numberDocument, 
-			String photoDocument, 
-			User user, 
-			Date dataNascimento,
-			Date dataEmissao,
-			String zona,
-			String secao,
-			String municipio) {
-		super(id, type, numberDocument, photoDocument, user);
+	public TituloEleitor(Integer id, TypeDocument type, String numberDocument, User user, String privateDocument, Date dataNascimento,
+			Date dataEmissao, String zona, String secao, String municipio) {
+		super(id, type, numberDocument, user, privateDocument);
 		this.dataNascimento = dataNascimento;
 		this.dataEmissao = dataEmissao;
 		this.zona = zona;
@@ -89,7 +80,5 @@ public class TituloEleitor extends Document{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

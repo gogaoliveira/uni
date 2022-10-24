@@ -43,6 +43,7 @@ public class UserResource {
 	
 	@PostMapping
 	public ResponseEntity<Void> insertUser(@RequestBody UserNewDTO userNewDto){	
+		
 		User objUser = userService.fromDto(userNewDto);
 		objUser = userService.insertUser(objUser);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
