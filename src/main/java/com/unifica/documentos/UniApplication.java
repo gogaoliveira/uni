@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.unifica.documentos.entity.Document;
+import com.unifica.documentos.entity.Request;
 import com.unifica.documentos.entity.User;
 import com.unifica.documentos.entity.documents.CarteiraMotorista;
 import com.unifica.documentos.entity.documents.CarteiraTrabalho;
@@ -22,8 +23,10 @@ import com.unifica.documentos.entity.documents.Endereco;
 import com.unifica.documentos.entity.documents.Outros;
 import com.unifica.documentos.entity.documents.Rg;
 import com.unifica.documentos.entity.documents.TituloEleitor;
+import com.unifica.documentos.entity.enums.StateRequest;
 import com.unifica.documentos.entity.enums.TypeDocument;
 import com.unifica.documentos.repositories.DocumentRepositories;
+import com.unifica.documentos.repositories.RequestRepositories;
 import com.unifica.documentos.repositories.UserRepositories;
 
 @SpringBootApplication
@@ -31,10 +34,15 @@ public class UniApplication implements CommandLineRunner {
 
 	@Autowired
 	private UserRepositories userRepositories;
+	
 	@Autowired
 	private DocumentRepositories documentRepositories;
+	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
+	
+	@Autowired
+	private RequestRepositories requestRepositories;
 
 	public static void main(String[] args) {
 		SpringApplication.run(UniApplication.class, args);
@@ -84,6 +92,19 @@ public class UniApplication implements CommandLineRunner {
 				sdf.parse("23/09/2007"), "001", "049", "Criciuma");
 
 		documentRepositories.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
+		
+		Request r1 = new Request(null, sdf.parse("09/10/2022"), StateRequest.AWAIT, u1, c1);
+		Request r2 = new Request(null, sdf.parse("13/08/2018"), StateRequest.AWAIT, u1, c2);
+		Request r3 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
+		Request r4 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
+		Request r5 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
+		Request r6 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
+		Request r7 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
+		Request r8 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
+		Request r9 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
+		Request r10 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
+		Request r11 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
+		requestRepositories.saveAll(Arrays.asList(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11));
 
 	}
 }
