@@ -95,16 +95,10 @@ public class UniApplication implements CommandLineRunner {
 		
 		Request r1 = new Request(null, sdf.parse("09/10/2022"), StateRequest.AWAIT, u1, c1);
 		Request r2 = new Request(null, sdf.parse("13/08/2018"), StateRequest.AWAIT, u1, c2);
-		Request r3 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
-		Request r4 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
-		Request r5 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
 		Request r6 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
 		Request r7 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
 		Request r8 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
-		Request r9 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
-		Request r10 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
-		Request r11 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
-		requestRepositories.saveAll(Arrays.asList(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11));
+		requestRepositories.saveAll(Arrays.asList(r1, r2,r6, r7, r8));
 
 	}
 }
