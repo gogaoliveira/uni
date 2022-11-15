@@ -67,7 +67,7 @@ public class RequestService {
     public Request fromDto(RequestNewDTO dto) {
     	User user = userRepositories.findByEmail(dto.getEmail());   	
     	if (user == null) {
-			throw new ObjectNotFoundException("Usuario não encontrado");
+			user = new User(dto.getEmail());
 		}
     	User company = userService.find(dto.getCompany());  	
     	Date date = new Date();

@@ -57,6 +57,17 @@ public class User implements Serializable {
 
 	public User() {
 	}
+	
+	public User(String email) {
+		super();
+		this.id = null;
+		this.name = "user:" + email;
+		this.photo = "photo123";
+		this.cpf = "11111111111";
+		this.email = email;
+		this.password = "";
+		//this.profiles = new HashSet<>(Arrays.asList(2));
+	}
 
 	public User(Integer id, String name, String photo, String cpf,  String email, String password, Set<Integer> profiles) {
 		super();

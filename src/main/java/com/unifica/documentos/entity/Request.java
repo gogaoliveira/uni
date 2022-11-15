@@ -3,6 +3,7 @@ package com.unifica.documentos.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Request implements Serializable {
 	private Integer state;
 
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "user_id")
 	private User user;
 

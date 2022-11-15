@@ -60,16 +60,16 @@ public class UniApplication implements CommandLineRunner {
 
 		User u1 = new User(null, "Douglas", "photo/douglas", "12345678909", "douglas@email.com", encoder.encode("123"),
 				userProfile);
-		User u2 = new User(null, "Flavia", "photo/flavia", "12345678909", "flavia@email.com", encoder.encode("321"),
-				userProfile);
-		User u3 = new User(null, "Eric", "photo/eric", "12345678909", "eric@email.com", encoder.encode("321"),
-				userProfile);
+		//User u2 = new User(null, "Flavia", "photo/flavia", "12345678909", "flavia@email.com", encoder.encode("321"),
+		//		userProfile);
+		//User u3 = new User(null, "Eric", "photo/eric", "12345678909", "eric@email.com", encoder.encode("321"),
+		//		userProfile);
 		User c1 = new User(null, "Empresa01", "photo/emp1", "12.123.122/0001-91", "emp1@email.com",
 				encoder.encode("123"), companyProfile);
-		User c2 = new User(null, "Empresa02", "photo/emp1", "95.007.654/0001-91", "emp2@email.com",
-				encoder.encode("123"), companyProfile);
+		//User c2 = new User(null, "Empresa02", "photo/emp1", "95.007.654/0001-91", "emp2@email.com",
+		//		encoder.encode("123"), companyProfile);
 
-		userRepositories.saveAll(Arrays.asList(u1, u2, u3, c1, c2));
+		userRepositories.saveAll(Arrays.asList(u1, c1));
 
 		Document d1 = new CarteiraMotorista(null, TypeDocument.CARTEIRA_MOTORISTA, "32165432", u1, "N",
 				sdf.parse("01/01/2025"), sdf.parse("01/01/2020"), "AB", "#####", "#####", "sem observações");
@@ -93,12 +93,12 @@ public class UniApplication implements CommandLineRunner {
 
 		documentRepositories.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
 		
-		Request r1 = new Request(null, sdf.parse("09/10/2022"), StateRequest.AWAIT, u1, c1);
+		/*Request r1 = new Request(null, sdf.parse("09/10/2022"), StateRequest.AWAIT, u1, c1);
 		Request r2 = new Request(null, sdf.parse("13/08/2018"), StateRequest.AWAIT, u1, c2);
 		Request r6 = new Request(null, sdf.parse("21/07/2015"), StateRequest.REFUSED, u1, c2);
 		Request r7 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
 		Request r8 = new Request(null, sdf.parse("11/06/2019"), StateRequest.APPROVED, u1, c2);
-		requestRepositories.saveAll(Arrays.asList(r1, r2,r6, r7, r8));
+		requestRepositories.saveAll(Arrays.asList(r1, r2,r6, r7, r8));*/
 
 	}
 }
